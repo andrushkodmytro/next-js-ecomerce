@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+
 type Product = {
   id: string;
   title: string;
@@ -20,11 +22,16 @@ async function getData(): Promise<Products> {
   return response.json();
 }
 
+export const metadata: Metadata = {
+  title: 'Products | E-Commerce',
+  description: 'Products page',
+};
+
 export default async function Products() {
   const { products, total, skip, limit } = await getData();
 
   return (
-    <div className='container mx-auto px-8'>
+    <div className='container p-8'>
       <div className='grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4'>
         {products.map(({ id, title, description, thumbnail, price, brand }) => {
           return (
