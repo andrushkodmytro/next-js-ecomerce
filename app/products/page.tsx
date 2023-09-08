@@ -1,22 +1,28 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 
-type Product = {
+export interface IProduct {
   id: string;
   title: string;
   description: string;
-  thumbnail: string;
   price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
   brand: string;
-};
+  category: string;
+  thumbnail: string;
+  images: string[];
+}
 
-type Products = {
-  products: Product[];
+interface IProducts {
+  products: IProduct[];
   total: number;
   skip: number;
   limit: number;
-};
+}
 
-async function getData(): Promise<Products> {
+async function getData(): Promise<IProducts> {
   const response = await fetch('https://dummyjson.com/products');
 
   return response.json();
@@ -35,7 +41,11 @@ export default async function Products() {
       <div className='grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4'>
         {products.map(({ id, title, description, thumbnail, price, brand }) => {
           return (
-            <div key={id} className='rounded-md border-1 border-gray-300 shadow-md overflow-hidden'>
+            <Link
+              href={`/products/${id}`}
+              key={id}
+              className='rounded-md border-1 border-gray-300 shadow-md hover:shadow-lg overflow-hidden'
+            >
               <div>
                 <img src={thumbnail} alt={title} className='object-cover h-48 w-full' />
               </div>
@@ -45,7 +55,7 @@ export default async function Products() {
                 <p className='text-gray-500 line-clamp-2'>{description}</p>
                 <p className='font-semibold'>{price}$</p>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
