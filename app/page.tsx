@@ -18,7 +18,7 @@ async function getData(): Promise<string[]> {
 
 export default async function Home() {
   const categories = await getData();
-  console.log(categories);
+
   return (
     <div className='container p-8 flex flex-col gap-8'>
       <section className='grid grid-cols-4 gap-4'>
@@ -50,7 +50,7 @@ export default async function Home() {
       </section>
       <section>
         <h2 className='text-3xl mb-4'>Categories</h2>
-        <div className='grid grid-cols-4'>
+        <div className='grid grid-cols-4 gap-4'>
           {categories.map((item, index) => {
             return (
               <div key={index} className='shadow-md p-6 flex gap-2 rounded-md'>

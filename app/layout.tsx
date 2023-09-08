@@ -31,6 +31,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </header>
         <main className='flex min-h-screen flex-col items-center justify-between'>{children}</main>
+        <footer className='bg-black text-white'>
+          <div className='container mx-auto p-8 flex flex-col items-center gap-4'>
+            <ul className='flex gap-4'>
+              <li>Blog</li>
+              <li>Terms</li>
+              <li>Privacy</li>
+              <li>About</li>
+            </ul>
+            &copy;2023
+          </div>
+        </footer>
       </body>
     </html>
   );
