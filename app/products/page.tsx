@@ -37,7 +37,7 @@ export default async function Products() {
   const { products, total, skip, limit } = await getData();
 
   return (
-    <div className='container p-8'>
+    <div className='container max-w-screen-xl p-8'>
       <div className='grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4'>
         {products.map(({ id, title, description, thumbnail, price, brand }) => {
           return (

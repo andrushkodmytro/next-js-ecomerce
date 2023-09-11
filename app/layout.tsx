@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       <body className={inter.className}>
         <header className='p-4 shadow-md'>
-          <nav className='container mx-auto px-8 flex '>
+          <nav className='container max-w-screen-xl mx-auto px-8 flex '>
             <Link href='/'>
               <Image className='relative' src='/next.svg' alt='Next.js Logo' width={130} height={30} priority />
             </Link>
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
         <main className='flex min-h-screen flex-col items-center justify-between'>{children}</main>
         <footer className='bg-black text-white'>
-          <div className='container mx-auto p-8 flex flex-col items-center gap-4'>
+          <div className='container max-w-screen-xl mx-auto p-8 flex flex-col items-center gap-4'>
             <ul className='flex gap-4'>
               <li>Blog</li>
               <li>Terms</li>
